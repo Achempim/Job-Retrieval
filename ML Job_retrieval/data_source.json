@@ -1,0 +1,104 @@
+{
+  "Data Sources": [
+    {
+      "name": "Monster",
+      "url": "https://www.monster.com"
+    },
+    {
+      "name": "ZipRecruiter",
+      "url": "https://www.ziprecruiter.com"
+    },
+    {
+      "name": "Interview Query",
+      "url": "https://www.interviewquery.com"
+    },
+    {
+      "name": "Wellfound (Formerly AngelList Talent)",
+      "url": "https://wellfound.com"
+    },
+    {
+      "name": "Instahyre",
+      "url": "https://www.instahyre.com"
+    },
+    {
+      "name": "Hirist",
+      "url": "https://www.hirist.com"
+    },
+    {
+      "name": "Open Data Science (ODSC)",
+      "url": "https://opendatascience.com"
+    },
+    {
+      "name": "DataJobs.com",
+      "url": "https://www.datajobs.com"
+    },
+    {
+      "name": "DataYoshi",
+      "url": "https://www.datayoshi.com"
+    },
+    {
+      "name": "Data Umbrella",
+      "url": "https://www.dataumbrella.org"
+    },
+    {
+      "name": "Outer Join",
+      "url": "https://www.outerjoin.us"
+    },
+    {
+      "name": "Blind",
+      "url": "https://www.teamblind.com"
+    },
+    {
+      "name": "Starbridge Partners",
+      "url": "https://www.starbridgepartners.com"
+    },
+    {
+      "name": "Underdog",
+      "url": "https://www.underdog.io"
+    },
+    {
+      "name": "Arc.Dev",
+      "url": "https://arc.dev"
+    },
+    {
+      "name": "Untapped (Formerly Jumpstart)",
+      "url": "https://www.untapped.io"
+    },
+    {
+      "name": "Ai-Jobs",
+      "url": "https://ai-jobs.net"
+    },
+    {
+      "name": "Indeed",
+      "url": "https://www.indeed.com"
+    },
+    {
+      "name": "Glassdoor",
+      "url": "https://www.glassdoor.com"
+    },
+    {
+      "name": "LinkedIn Jobs",
+      "url": "https://www.linkedin.com/jobs"
+    },
+    {
+      "name": "Hired",
+      "url": "https://hired.com"
+    },
+    {
+      "name": "CareerBuilder",
+      "url": "https://www.careerbuilder.com"
+    },
+    {
+      "name": "SimplyHired",
+      "url": "https://www.simplyhired.com"
+    },
+    {
+      "name": "Remote.co",
+      "url": "https://remote.co"
+    },
+    {
+      "name": "Dice",
+      "url": "https://www.dice.com"
+    }
+  ]
+}
