@@ -2,10 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 import sqlite3
 import json
-import os
 from datetime import datetime
 
-# Load data sources
+# Load job sources
 with open('data_sources.json', 'r') as file:
     data_sources = json.load(file)
 
@@ -17,7 +16,7 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
-# Create jobs table if it doesn't exist
+# Create jobs table
 def setup_database():
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -47,8 +46,8 @@ def fetch_job_listings(query="Data Engineer"):
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
 
-            # Placeholder: Extract job postings (modify this for real websites)
-            for i in range(3):  
+            # Placeholder: Extract job postings (modify for real scraping)
+            for i in range(3):
                 jobs.append({
                     "title": f"{query} Job {i+1} - {source['name']}",
                     "company": source["name"],
@@ -57,7 +56,7 @@ def fetch_job_listings(query="Data Engineer"):
                     "link": source["url"],
                     "skills": "Python, SQL, Machine Learning"
                 })
-        
+
         except requests.exceptions.RequestException as e:
             print(f"Failed to fetch from {source['name']}: {e}")
 

@@ -8,7 +8,7 @@ CORS(app)
 
 @app.route('/api/jobs/search', methods=['GET'])
 def search_jobs():
-    query = request.args.get('q', 'Data Engineer')  # Default search
+    query = request.args.get('q', 'Data Engineer')  # Default search query
     jobs = fetch_job_listings(query)
     return jsonify(jobs)
 
