@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Job Vacancy Dashboard</title>
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="app.js"></script>
+    <meta charset="UTF-8">
+    <title>Job Search Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-<body>
+<body class="container">
 
-<h2>Job Vacancy Dashboard</h2>
+    <h2 class="text-center my-4">Job Search Dashboard</h2>
 
-<div id="sample-metadata" class="panel"></div>
+    <div class="input-group mb-3">
+        <input type="text" id="searchQuery" class="form-control" placeholder="Enter job title (e.g., Data Scientist)">
+        <div class="input-group-append">
+            <button class="btn btn-primary" onclick="fetchJobs()">Search</button>
+        </div>
+    </div>
 
-<div id="bar"></div>
-<div id="bubble"></div>
+    <div id="job-list" class="mt-4"></div>
 
 </body>
 </html>

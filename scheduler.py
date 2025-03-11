@@ -1,13 +1,13 @@
 from apscheduler.schedulers.blocking import BlockingScheduler
-from scraper import fetch_jobs
-from email_notifier import send_email
+from scraper import fetch_job_listings
 
 scheduler = BlockingScheduler()
 
-# Schedule job scraping twice daily
-scheduler.add_job(fetch_jobs, 'interval', hours=12)
+# Schedule job fetching (not storing, only refreshing)
+def refresh_jobs():
+    print("Refreshing job listings...")
+    fetch_job_listings("Data Scientist")  # Default search example
 
-# Schedule email notifications twice daily
-scheduler.add_job(lambda: send_email("Top Job Alerts", "New job listings available!"), 'interval', hours=12)
+scheduler.add_job(refresh_jobs, 'interval', hours=12)
 
 scheduler.start()
