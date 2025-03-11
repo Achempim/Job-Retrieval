@@ -1,15 +1,45 @@
 import requests
 from bs4 import BeautifulSoup
+import sqlite3
 import json
+import os
+from datetime import datetime
 
-# Load job sources
+# Load data sources
 with open('data_sources.json', 'r') as file:
     data_sources = json.load(file)
 
-# Function to fetch job listings from a given source
-def fetch_job_listings(search_query):
-    jobs = []
+# Database connection
+DB_FILE = "jobs.db"
+
+def get_db_connection():
+    conn = sqlite3.connect(DB_FILE)
+    conn.row_factory = sqlite3.Row
+    return conn
+
+# Create jobs table if it doesn't exist
+def setup_database():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS jobs (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            company TEXT,
+            location TEXT,
+            salary TEXT,
+            link TEXT UNIQUE,
+            skills TEXT,
+            timestamp TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+# Function to fetch job listings
+def fetch_job_listings(query="Data Engineer"):
     headers = {'User-Agent': 'Mozilla/5.0'}
+    jobs = []
 
     for source in data_sources["Data Sources"]:
         try:
@@ -17,18 +47,20 @@ def fetch_job_listings(search_query):
             response.raise_for_status()
             soup = BeautifulSoup(response.text, 'html.parser')
 
-            # **Extract jobs dynamically (customize per website)**
-            # For now, we simulate sample results
-            for i in range(5):  # Mock 5 job results per source
+            # Placeholder: Extract job postings (modify this for real websites)
+            for i in range(3):  
                 jobs.append({
-                    "title": f"{search_query} Job {i+1} - {source['name']}",
+                    "title": f"{query} Job {i+1} - {source['name']}",
                     "company": source["name"],
                     "location": "Remote",
                     "salary": "$70,000 - $120,000",
-                    "link": source["url"]
+                    "link": source["url"],
+                    "skills": "Python, SQL, Machine Learning"
                 })
-
+        
         except requests.exceptions.RequestException as e:
             print(f"Failed to fetch from {source['name']}: {e}")
 
     return jobs
+
+setup_database()
